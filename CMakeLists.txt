@@ -30,3 +30,5 @@ add_executable(RandomsGenerator
     main.cpp)
 
 target_link_libraries(RandomsGenerator PRIVATE ${CPP_REST_LIBRARY} ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES})
+install(TARGETS RandomsGenerator RUNTIME DESTINATION bin)
+
