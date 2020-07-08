@@ -30,6 +30,7 @@ add_executable(RandomsGenerator
     # controller/BaseController.hpp
     main.cpp)
 
-target_link_libraries(RandomsGenerator PRIVATE ${CPP_REST_LIBRARY} ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES})
+# target_link_libraries(RandomsGenerator PRIVATE ${CPP_REST_LIBRARY} ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES})
+target_link_libraries(RandomsGenerator PRIVATE ${CPP_REST_LIBRARY} ${OPENSSL_LIBRARIES} )
 install(TARGETS RandomsGenerator RUNTIME DESTINATION bin)
 
