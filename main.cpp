@@ -1,15 +1,15 @@
-#include "controller/BaseController.hpp"
+#include "controller/Controller.hpp"
 #include "signal/SignalHandler.hpp"
 
 #include <iostream>
 
 int main() {
-    BaseController echo;
-    echo.setEndPoint("http://localhost:8080");
+    Controller random_generator;
+    random_generator.setEndPoint("http://localhost:8080");
     try {
-        echo.open().wait();
+        random_generator.open().wait();
         SignalHandler::waitForUserInterrupt();
-        echo.close().wait();
+        random_generator.close().wait();
     } catch (std::exception & e) {
         std::cerr << e.what() << std::endl;
     }

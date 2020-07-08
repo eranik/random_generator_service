@@ -1,5 +1,5 @@
-#ifndef RANDOM_NUMBER_GENERATOR_H_
-#define RANDOM_NUMBER_GENERATOR_H_
+#ifndef NORMAL_H_
+#define NORMAL_H_
 
 #include <cinttypes>
 #include <random>
@@ -7,18 +7,19 @@
 
 namespace Randoms {
 
-class Uniform {
+class Normal {
  public:
-  Uniform() : rd(), gen_for_uniform(rd()){}
-  // get_uniform works independently from other get functions in this class.
-  std::tuple<uint64_t, double*> get_uniform(double left, double right, uint64_t count) {
-    std::uniform_real_distribution<> distrib(left, right);
+  Normal() : rd(), gen_for_normal(rd()) {}
+
+  std::tuple<uint64_t, double*> get_normal(double mean, double stddev, uint64_t count) {
+    std::normal_distribution<> distrib{mean, stddev};
     double* res = new double[count];
-    for (uint64_t n = 0; n < count; n++) res[n] = distrib(gen_for_uniform);
+    for (uint64_t n = 0; n < count; n++) res[n] = distrib(gen_for_normal);
     return {count, res};
   }
+
   std::random_device rd;
-  std::mt19937_64 gen_for_uniform;
+  std::mt19937_64 gen_for_normal;
 };
 
 }
