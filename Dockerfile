@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt-get update -yqq \
     && apt-get install -yqq --no-install-recommends software-properties-common \
-    sudo locales git g++-8 libcpprest-dev \
+    sudo curl wget cmake pkg-config locales git g++-8 libcpprest-dev \
     && rm -rf /var/lib/apt/lists/* \
     && locale-gen en_US.UTF-8
 
